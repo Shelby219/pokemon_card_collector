@@ -1,0 +1,14 @@
+{
+    "name": "carracosta",
+    "types": "water",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/565.png",
+    "create_date": 1601615337151,
+    "modified_date": 1601615337151,
+    "NaN": {
+        "name": "cyndaquil",
+        "types": "fire",
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/155.png",
+        "create_date": 1601615436284,
+        "modified_date": 1601615436284
+    }
+}
