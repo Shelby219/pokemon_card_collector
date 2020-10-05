@@ -3,7 +3,9 @@ const fetch = require('node-fetch');
 
 
 const getPokes = (req,res) => {
-    res.send(getAllPokes(req))
+    //res.send(getAllPokes(req))
+    let toRender = getAllPokes(req)
+    res.render('index', { title: 'Pokemon', pokemon: toRender})
 }
 
 

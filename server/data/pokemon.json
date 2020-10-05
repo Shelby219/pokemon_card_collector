@@ -1,14 +1,16 @@
 {
-    "name": "carracosta",
-    "types": "water",
-    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/565.png",
-    "create_date": 1601615337151,
-    "modified_date": 1601615337151,
-    "NaN": {
-        "name": "cyndaquil",
-        "types": "fire",
-        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/155.png",
-        "create_date": 1601615436284,
-        "modified_date": 1601615436284
+    "1": {
+        "name": "pikachu",
+        "types": "electric",
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+        "create_date": 1601852830832,
+        "modified_date": 1601852830832
+    },
+    "2": {
+        "name": "thundurus-incarnate",
+        "types": "electric",
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/642.png",
+        "create_date": 1601852835102,
+        "modified_date": 1601852835102
     }
 }

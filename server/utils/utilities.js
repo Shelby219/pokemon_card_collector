@@ -33,9 +33,7 @@ const createPoke = function(results) {
 // Returns the next available id for a blog post
 function getNextId() {
 	let sortedIds = Object.keys(allPokes).sort()
-	nextId = (sortedIds.length != 0) 
-			? parseInt(sortedIds[sortedIds.length-1]) + 1
-			: 1
+	nextId = (sortedIds.length != 0) ? parseInt(sortedIds[sortedIds.length-1]) + 1 : 1
 	return nextId
 }
 
