@@ -7,7 +7,6 @@ const getAllPokes = (req) => {
     return allPokes
 }
 
-
 const createPoke = function(results) {
 	try {
 		const date = Date.now()

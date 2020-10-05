@@ -4,10 +4,20 @@ const fetch = require('node-fetch');
 
 const getPokes = (req,res) => {
     //res.send(getAllPokes(req))
-    let toRender = getAllPokes(req)
-    res.render('index', { title: 'Pokemon', pokemon: toRender})
-}
+    let printingAllPokes = getAllPokes(req)
+    let pokemons = []
 
+    Object.keys(printingAllPokes).map(function(key, index) {
+        printingAllPokes[key] != null ?  pokemons.push(printingAllPokes[key]) : res.send("no pokes")
+      });
+   
+    
+   
+    res.render('index', { title: 'Pokemon', 
+    pokemon: JSON.stringify(pokemons)
+})
+}
+//getPokes("hello", "hello")
 
 async function getPokemon() {
     let num = Math.floor(Math.random() * 808) + 1;
