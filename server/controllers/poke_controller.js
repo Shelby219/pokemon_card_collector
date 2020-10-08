@@ -1,4 +1,4 @@
-const { getAllPokes, createPoke } = require("../utils/utilities")
+const { getAllPokes, createPoke, getPokeById } = require("../utils/utilities")
 const fetch = require('node-fetch');
 
 
@@ -17,6 +17,19 @@ const getPokes = (req,res) => {
     pokemon: JSON.stringify(pokemons)
 })
 }
+
+
+const getPoke = (req, res) => {
+    let poke = getPokeById(req)
+    if (poke) res.send(poke)
+    else{
+        res.status(404)
+        res.send(req.error)
+    }
+}
+
+
+
 //getPokes("hello", "hello")
 
 async function getPokemon() {
@@ -46,5 +59,6 @@ const makePoke = async (req, res) =>{
 //makePoke()
     module.exports = {
         makePoke,
-        getPokes
+        getPokes,
+        getPoke
     }

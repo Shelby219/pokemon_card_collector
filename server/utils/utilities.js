@@ -1,11 +1,19 @@
-const dataFile = "../../server/data/pokemon.json"
-let allPokes = require(dataFile)
+const dataFile = "data/pokemon.json"
+let allPokes = require(`../${dataFile}`)
 const fs = require('fs');
 
 
 const getAllPokes = (req) => {
     return allPokes
 }
+
+const getPokeById = function(req) {
+	let poke = allPokes[req.params.id]
+	if (poke) return poke
+	else req.error = "Poke not found"
+}
+
+
 
 const createPoke = function(results) {
 	try {
@@ -45,4 +53,5 @@ module.exports = {
     createPoke,
     getAllPokes,
     getDataFileRelativeToApp,
+    getPokeById
 }
