@@ -1,57 +1,52 @@
-const dataFile = "data/pokemon.json"
-let allPokes = require(`../${dataFile}`)
-const fs = require('fs');
+let Poke = require("../models/poke")
+
+const fetch = require('node-fetch');
 
 
 const getAllPokes = (req) => {
-    return allPokes
+	//return allPokes
+	return Poke.find()
 }
-
 const getPokeById = function(req) {
-	let poke = allPokes[req.params.id]
+	//let poke = allPokes[req.params.id]
+	let poke = Poke.findById(req.params.id)
 	if (poke) return poke
 	else req.error = "Poke not found"
 }
 
+const createPoke = async function(req) {
+	let results = await getPokemon();
+	const date = Date.now()
+	let poke = {
+		name: results.name,
+		type: results.types[0].type.name,
+		image:  results.sprites.front_default ,
+		create_date: date,
+		modified_date: date}
 
-
-const createPoke = function(results) {
-	try {
-		const date = Date.now()
-		let newPoke = {
-            name: results.name,
-            types: results.types[0].type.name,
-            image:  results.sprites.front_default ,
-			create_date: date,
-			modified_date: date,
-        }
-        //console.log(newPoke)
-		allPokes[getNextId()] = newPoke
-		fs.writeFileSync(getDataFileRelativeToApp(dataFile), JSON.stringify(allPokes))
-		return newPoke
-	}
-	catch(error) {
-		console.error(error)
-		req.error = error
-		return null
-	}
+	return new Poke(poke)
 }
 
-// Returns the next available id for a blog post
-function getNextId() {
-	let sortedIds = Object.keys(allPokes).sort()
-	nextId = (sortedIds.length != 0) ? parseInt(sortedIds[sortedIds.length-1]) + 1 : 1
-	return nextId
+// deletePoke
+function deletePoke(id) {
+	return Poke.findByIdAndRemove(id)
 }
 
-
-const getDataFileRelativeToApp = (file) => {
-	return file.substring(file.lastIndexOf("../") + 3, file.length)
+async function getPokemon() {
+    const num = Math.floor(Math.random() * 808) + 1;
+    const url = `https://pokeapi.co/api/v2/pokemon/${num}`;
+    try {
+	const res = await fetch(url);
+	const pokemon = await res.json();
+	return pokemon;
+    } catch (error) {
+    console.log(error);
+    }
 }
 
 module.exports = {
     createPoke,
     getAllPokes,
-    getDataFileRelativeToApp,
-    getPokeById
+	getPokeById,
+	deletePoke
 }
