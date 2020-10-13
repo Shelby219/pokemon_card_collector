@@ -47,9 +47,8 @@ const makePoke = (req, res) =>{
 				error: err.message
 			})
         }
-        return "Abc"
-		//res.status(201)
-		//res.send(poke)
+		res.status(201)
+		res.send(poke)
 	})
 }
 

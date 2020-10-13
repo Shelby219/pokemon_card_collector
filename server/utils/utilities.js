@@ -14,6 +14,7 @@ const getPokeById = function(req) {
 	else req.error = "Poke not found"
 }
 
+//works
 const createPoke = async function(req) {
 	let results = await getPokemon();
 	const date = Date.now()
@@ -24,14 +25,14 @@ const createPoke = async function(req) {
 		create_date: date,
 		modified_date: date}
 
-	return new Poke(poke)
+	return new Poke(poke).save
 }
 
 // deletePoke
 function deletePoke(id) {
 	return Poke.findByIdAndRemove(id)
 }
-
+//works
 async function getPokemon() {
     const num = Math.floor(Math.random() * 808) + 1;
     const url = `https://pokeapi.co/api/v2/pokemon/${num}`;
