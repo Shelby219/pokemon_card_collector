@@ -24,22 +24,31 @@ const getPokes = (req,res) => {
                     error: err.message
                 })
             }
-            //res.send(pokes)
-           // let pokemon = 
-            res.render('index', { 
+        // let pokemons = []
+        // Object.keys(pokes).map(function(key, index) {
+        //     pokes[key] != null ?  pokemons.push(pokes[key]) : res.send("no pokes")
+        //           });
+            
+            res.render('all_pokemon', { 
                 title: 'Pokemon', 
-                pokemon: pokes,
+                pokes: pokes, // pokes[1]
                 })
+                
         })
 }
 
 const getPoke = (req, res) => {
-    let poke = getPokeById(req)
-    if (poke) res.send(poke)
-    else{
-        res.status(404)
-        res.send(req.error)
-    }
+    getPokeById(req).exec((err, poke) => {
+        if (err) {
+            res.status(400);
+            return res.send("Poke not found");
+        }
+       // res.send(poke);   //5f85634ef53f4a0687ca9a44
+        res.render('poke_card', { 
+            title: 'Pokemon', 
+            poke: poke, // pokes[1]
+            })
+    });
 }
 
 // removePoke
@@ -56,7 +65,6 @@ const removePoke = function (req, res) {
     });
 };
 
-
 const makePoke = function(req,res) {
     createPoke(req)
     .then(p => 
@@ -68,9 +76,6 @@ const makePoke = function(req,res) {
     
 }
 
-//makePoke()
-
-//makePoke()
     module.exports = {
         makePoke,
         getPokes,

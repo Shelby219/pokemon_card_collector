@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each poke in pokes
+      li
+           p=poke.name
+           p=poke.type
+           img(src=`${poke.image}`)
+
+  
