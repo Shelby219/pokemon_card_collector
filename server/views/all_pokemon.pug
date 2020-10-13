@@ -1,13 +1,17 @@
 extends layout
 
 block content
+
+
   h1= title
-
+    .title
+    
   ul
+  .pokemon-container
     each poke in pokes
-      li
-           p=poke.name
-           p=poke.type
-           img(src=`${poke.image}`)
+      li 
+      .pokemon
+        p=poke.name
+        p=poke.type
+        img(src=`${poke.image}`)
 
-  

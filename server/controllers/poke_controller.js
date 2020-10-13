@@ -36,7 +36,6 @@ const getPokes = (req,res) => {
                 
         })
 }
-
 const getPoke = (req, res) => {
     getPokeById(req).exec((err, poke) => {
         if (err) {
