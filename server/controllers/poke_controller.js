@@ -3,18 +3,34 @@ const fetch = require('node-fetch');
 
 
 const getPokes = (req,res) => {
-    //res.send(getAllPokes(req))
-    let printingAllPokes = getAllPokes(req)
-    res.send(printingAllPokes)
-    // let pokemons = []
+                //res.send(getAllPokes(req))
+            // let printingAllPokes = getAllPokes(req)
+            //     console.log(printingAllPokes)
+            //     //res.send(printingAllPokes)
+            //     let pokemons = []
 
-    // Object.keys(printingAllPokes).map(function(key, index) {
-    //     printingAllPokes[key] != null ?  pokemons.push(printingAllPokes[key]) : res.send("no pokes")
-    //   });
-   
-    // res.render('index', { title: 'Pokemon', 
-    // pokemon: JSON.stringify(pokemons)
-// })
+            //     Object.keys(printingAllPokes).map(function(key, index) {
+            //         printingAllPokes[key] != null ?  pokemons.push(printingAllPokes[key]) : res.send("no pokes")
+            //       });
+            
+            //     res.render('index', { title: 'Pokemon', 
+            //     pokemon: JSON.stringify(pokemons)
+        // })
+        getAllPokes(req)
+        .exec((err,pokes)=>{
+            if(err){
+                res.status(500)
+                return res.json({
+                    error: err.message
+                })
+            }
+            //res.send(pokes)
+           // let pokemon = 
+            res.render('index', { 
+                title: 'Pokemon', 
+                pokemon: pokes,
+                })
+        })
 }
 
 const getPoke = (req, res) => {
@@ -42,26 +58,14 @@ const removePoke = function (req, res) {
 
 
 const makePoke = function(req,res) {
-    createPoke(req).then(p => 
+    createPoke(req)
+    .then(p => 
         //console.log(p)
-        res.send(p)
-        )
-        //res.send(p)
-
-        //console.log(p)
-        
-	// createPoke(req).then((err,poke)=>{
-	// 	if(err){
-    //         console.log(err.message)
-	// 		res.status(500)
-	// 		return res.json({
-	// 			error: err.message
-	// 		})
-    //     }
-    //     console.log(poke)
-	// 	res.status(201)
-	// 	res.send(poke)
-	// })
+        //res.status(201)
+        res.send(p))
+    .catch(err => 
+        res.send(err))
+    
 }
 
 //makePoke()

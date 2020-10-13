@@ -23,10 +23,13 @@ const createPoke = async function(req) {
 		type: results.types[0].type.name,
 		image:  results.sprites.front_default ,
 		create_date: date,
-		modified_date: date}
-
-	return new Poke(poke).save
+		modified_date: date
+	}
+	const newPoke = new Poke(poke)
+	return newPoke.save()
 }
+//createPoke("hi").then(p => console.log(p))
+
 
 // deletePoke
 function deletePoke(id) {
