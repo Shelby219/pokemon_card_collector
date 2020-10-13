@@ -44,7 +44,7 @@ const getPoke = (req, res) => {
         }
        // res.send(poke);   //5f85634ef53f4a0687ca9a44
         res.render('poke_card', { 
-            title: 'Pokemon', 
+            title: 'Pokemon Card Collection', 
             poke: poke, // pokes[1]
             })
     });

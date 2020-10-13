@@ -25,15 +25,16 @@
 .pokemon-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  width: 800px;
   justify-content: center;
   align-items: center;
-  
+  list-style: none;
+
 }
 .pokemon {
-  flex: 0 24%; /* 4 row items*/
-  height: 100px;
-  margin-bottom: 2%;
+  border: 1px solid black;
+  height: 300px;
+  margin: 20px;
+  width: 200px;
+  
    
 }
