@@ -5,15 +5,16 @@ const fetch = require('node-fetch');
 const getPokes = (req,res) => {
     //res.send(getAllPokes(req))
     let printingAllPokes = getAllPokes(req)
-    let pokemons = []
+    res.send(printingAllPokes)
+    // let pokemons = []
 
-    Object.keys(printingAllPokes).map(function(key, index) {
-        printingAllPokes[key] != null ?  pokemons.push(printingAllPokes[key]) : res.send("no pokes")
-      });
+    // Object.keys(printingAllPokes).map(function(key, index) {
+    //     printingAllPokes[key] != null ?  pokemons.push(printingAllPokes[key]) : res.send("no pokes")
+    //   });
    
-    res.render('index', { title: 'Pokemon', 
-    pokemon: JSON.stringify(pokemons)
-})
+    // res.render('index', { title: 'Pokemon', 
+    // pokemon: JSON.stringify(pokemons)
+// })
 }
 
 const getPoke = (req, res) => {
@@ -39,18 +40,31 @@ const removePoke = function (req, res) {
     });
 };
 
-const makePoke = (req, res) =>{
-    createPoke(req).then((err,poke)=>{
-		if(err){
-			res.status(500)
-			return res.json({
-				error: err.message
-			})
-        }
-		res.status(201)
-		res.send(poke)
-	})
+
+const makePoke = function(req,res) {
+    createPoke(req).then(p => 
+        //console.log(p)
+        res.send(p)
+        )
+        //res.send(p)
+
+        //console.log(p)
+        
+	// createPoke(req).then((err,poke)=>{
+	// 	if(err){
+    //         console.log(err.message)
+	// 		res.status(500)
+	// 		return res.json({
+	// 			error: err.message
+	// 		})
+    //     }
+    //     console.log(poke)
+	// 	res.status(201)
+	// 	res.send(poke)
+	// })
 }
+
+//makePoke()
 
 //makePoke()
     module.exports = {
