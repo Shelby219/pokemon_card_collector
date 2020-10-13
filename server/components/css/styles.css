@@ -17,9 +17,18 @@
   }
 
 .title {
-  margin: 50px;
-  padding: 20px;
- 
+  display flex;
+  justify-content: center;
+  width:100%;
+  text-align:center;
+}
+.title-text {
+  border: 0.5px solid black;
+  margin: 10px;
+  padding: 5px;
+  width: 150px;
+  display: inline-block;
+
 }
 
 .pokemon-container {
@@ -28,13 +37,25 @@
   justify-content: center;
   align-items: center;
   list-style: none;
-
 }
 .pokemon {
   border: 1px solid black;
   height: 300px;
   margin: 20px;
   width: 200px;
-  
-   
+}
+
+.pokemon-div {
+ display flex;
+ justify-content: center;
+ width:100%;
+text-align:center;
+}
+.pokemon-p {
+  border: 0.5px solid black;
+  margin: 10px;
+  padding: 5px;
+  width: 150px;
+  display: inline-block;
+  font-size: 0.8em;
 }
