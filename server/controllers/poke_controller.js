@@ -24,13 +24,8 @@ const getPokes = (req,res) => {
                     error: err.message
                 })
             }
-        // let pokemons = []
-        // Object.keys(pokes).map(function(key, index) {
-        //     pokes[key] != null ?  pokemons.push(pokes[key]) : res.send("no pokes")
-        //           });
-            
             res.render('all_pokemon', { 
-                title: 'Pokemon', 
+                title: 'Pokemon Card Collector', 
                 pokes: pokes, // pokes[1]
                 })
                 
@@ -44,7 +39,7 @@ const getPoke = (req, res) => {
         }
        // res.send(poke);   //5f85634ef53f4a0687ca9a44
         res.render('poke_card', { 
-            title: 'Pokemon Card Collection', 
+            title: 'Pokemon', 
             poke: poke, // pokes[1]
             })
     });
@@ -69,7 +64,12 @@ const makePoke = function(req,res) {
     .then(p => 
         //console.log(p)
         //res.status(201)
-        res.send(p))
+    
+        res.send(p)
+        //res.redirect("/")
+        )
+        
+        
     .catch(err => 
         res.send(err))
     
