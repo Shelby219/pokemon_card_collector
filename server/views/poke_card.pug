@@ -1,9 +1,11 @@
 extends layout
 
 block content
-  h1= title
-           p=poke.name
-           p=poke.type
-           img(src=`${poke.image}`)
-   
- 
+  div.title
+  h1.title-text= title
+  div
+  div.pokemon-div
+    p.pokemon-p=poke.name
+    img(src=`${poke.image}`).pokemon-p
+    p.pokemon-p=poke.type
+

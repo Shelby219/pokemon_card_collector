@@ -55,9 +55,15 @@ const removePoke = function (req, res) {
                 error: err.message
             });
         }
-        res.sendStatus(204);
+        //res.redirect("/pokemon")
+        //res.sendStatus(204);
+        req.flash('success', 'Poke Deleted')
+        res.send('Success');
     });
 };
+
+
+
 
 const makePoke = function(req,res) {
     createPoke(req)
@@ -65,8 +71,8 @@ const makePoke = function(req,res) {
         //console.log(p)
         //res.status(201)
     
-        res.send(p)
-        //res.redirect("/")
+        //res.send(p)
+        res.redirect("/pokemon")
         )
         
         

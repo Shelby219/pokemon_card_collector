@@ -5,15 +5,16 @@ block content
  div.title
   h1.title-text= title
   div  
-    a.button(href=`/pokemon/create`) Add to Collection
-  
+    form.form-inline(method='post', action='/pokemon/create')
+            button.button(type='submit') Add to Collection           
   ul
   .pokemon-container
     each poke in pokes
       li.pokemon
        div.pokemon-div
+        a(ref='/pokemon/' + poke._id) See Poke
         p.pokemon-p=poke.name
         img(src=`${poke.image}`).pokemon-p
         p.pokemon-p=poke.type
-     
-       
+        div
+        a.button.delete-poke(href='#', data-pokeid=poke._id) Delete
