@@ -3,19 +3,7 @@ const fetch = require('node-fetch');
 
 
 const getPokes = (req,res) => {
-                //res.send(getAllPokes(req))
-            // let printingAllPokes = getAllPokes(req)
-            //     console.log(printingAllPokes)
-            //     //res.send(printingAllPokes)
-            //     let pokemons = []
-
-            //     Object.keys(printingAllPokes).map(function(key, index) {
-            //         printingAllPokes[key] != null ?  pokemons.push(printingAllPokes[key]) : res.send("no pokes")
-            //       });
             
-            //     res.render('index', { title: 'Pokemon', 
-            //     pokemon: JSON.stringify(pokemons)
-        // })
         getAllPokes(req)
         .exec((err,pokes)=>{
             if(err){
@@ -68,14 +56,8 @@ const removePoke = function (req, res) {
 const makePoke = function(req,res) {
     createPoke(req)
     .then(p => 
-        //console.log(p)
-        //res.status(201)
-    
-        //res.send(p)
         res.redirect("/pokemon")
         )
-        
-        
     .catch(err => 
         res.send(err))
     
