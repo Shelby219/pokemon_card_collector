@@ -11,51 +11,63 @@
 }
 
 #page {
-    height: 125vh;
-    background: radial-gradient(circle, #bcf363 52%, #22c1c3 82%, #3c9acf 100%);
+
+    background: black;
   }
 
 .title {
-  display flex;
-  justify-content: center;
   width:100%;
   text-align:center;
-  
+}
+
+.poketitle{
+  width: 30%;
+  padding: 20px;   
 }
 .title-text {
-  margin: 10px;
-  padding: 5px;   
-  width: 500px;
-  display: inline-block;
-  color: #fee166;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #3a5a9f;
-  font-size: 3em;
-  font-weight: 700;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;   
+  color:white;
+  font-size: 1.5em;
+  font-weight: 900;
   text-transform: uppercase;
-
 }
 
-.button {
-  border: 1px solid black;
-  border-radius: 15px;
-  padding: 8px;
+.pokeball {
+  background: none;
+  border: none;
+	padding: 0;
+  cursor: pointer;
   text-decoration: none;
-  background-color:#22c1c3 ;
-  color: white;
+  
+}
+.pokeball:hover{
+
+  animation: spin 2s infinite;
+}
+
+@keyframes spin {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
 }
 
 .pokemon-container {
   display: flex;
   flex-wrap: wrap;
-  
   justify-content: center;
   align-items: center;
   list-style: none;
-  margin-top: 50px;
+  margin-top: 10px;
+  padding: 50px;
 }
 .pokemon {
-  height: 300px;
+  height: 310px;
   margin: 20px;
   width: 200px;
 }

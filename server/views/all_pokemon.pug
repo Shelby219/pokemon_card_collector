@@ -3,18 +3,41 @@ extends layout
 block content
 
  div.title
+  img.poketitle(src="http://pngimg.com/uploads/pokemon_logo/pokemon_logo_PNG9.png" alt="pokemon title")
   h1.title-text= title
   div  
-    form.form-inline(method='post', action='/pokemon/create')
-            button.button(type='submit') Add to Collection           
+    form(method='post', action='/pokemon/create')
+            button.pokeball(type='submit')   
+              img(src="http://www.pngmart.com/files/2/Pokeball-PNG-Photos.png" width="20%" alt="pokeball")
+               
   ul
   .pokemon-container
     each poke in pokes
       li.pokemon
        div.pokemon-div
-        a(ref='/pokemon/' + poke._id) See Poke
         p.pokemon-p=poke.name
         img(src=`${poke.image}`).pokemon-p
         p.pokemon-p=poke.type
-        div
-        a.button.delete-poke(href='#', data-pokeid=poke._id) Delete
+          div
+            button.far.fa-trash-alt.delete-poke(value=poke._id, id="delete-poke") 
+
+  script.
+    // delete fetch function for delete method
+    let del = document.getElementById('delete-poke')
+    del.addEventListener('click',
+      function () {  
+        //console.log("CHECK")
+        fetch('http://localhost:3000/pokemon/'+ del.value, {    
+          method: 'DELETE'
+          })  
+          .then(res => {if (res.ok) 
+          return res.json()  })
+          .then(data => {    
+              console.log(data)    
+              //window.location.reload()  
+              })
+            .catch(err => console.log(err))
+        })
+
+
+

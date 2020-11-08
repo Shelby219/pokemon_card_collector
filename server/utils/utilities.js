@@ -34,6 +34,7 @@ const createPoke = async function(req) {
 // deletePoke
 function deletePoke(id) {
 	return Poke.findByIdAndRemove(id)
+
 }
 //works
 async function getPokemon() {

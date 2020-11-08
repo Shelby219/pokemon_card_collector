@@ -13,7 +13,7 @@ const getPokes = (req,res) => {
                 })
             }
             res.render('all_pokemon', { 
-                title: 'Pokemon Card Collector', 
+                title: 'Card Collector', 
                 pokes: pokes, // pokes[1]
                 })
                 
@@ -43,12 +43,14 @@ const removePoke = function (req, res) {
                 error: err.message
             });
         }
+        console.log("DONE")
         //res.redirect("/pokemon")
         //res.sendStatus(204);
-        req.flash('success', 'Poke Deleted')
+        //req.flash('success', 'Poke Deleted')
         res.send('Success');
     });
 };
+
 
 
 
